@@ -1,0 +1,43 @@
+<html ng-app="libraryApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="./style/custom.css">
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-static-top" ng-controller="headerLibraryController">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="./img/est-big.png"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="{ active: isActive('/emprunt')}"><a href="#/emprunt">Emprunt&nbsp;</a></li>
+                    <li ng-class="{ active: isActive('/restitution')}"><a href="#/restitution">Restitution<br></a></li>
+                    <li ng-class="{ active: isActive('/gestion')}"><a href="#/gestion">Gestion<br></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container" ng-view></div>
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/controllers.js"></script>
+</body>
+
+</html>

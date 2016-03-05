@@ -1,0 +1,12 @@
+{
+  "name": "estt-mean",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-bootstrap": "^1.2.2"
+  },
+  "devDependencies": {},
+  "appPath": "app",
+  "moduleName": "esttMeanApp"
+}
