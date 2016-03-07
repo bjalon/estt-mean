@@ -5,25 +5,33 @@ This application is composed by a front application using AngularJS, a back appl
 
 ## Build & development
 
-* [Install MongoDB|https://docs.mongodb.org/manual/installation/]
-* [Install NodeJS|https://nodejs.org/en/download/]
+* [Install MongoDB](https://docs.mongodb.org/manual/installation/)
+* [Install NodeJS](https://nodejs.org/en/download/)
 * Install Python
 * Start the mongoDB (normally explain at the end of the installation)
-* Launch the following command line to expose the front application from the app directory
+* Launch the following command line to expose the front application from the root of the project
 
-   npm install
-   bower install
-   python -m SimpleHTTPServer 8080
+ ```
+cd /path/of/workspace
+npm install
+bower install
+cd app
+python -m SimpleHTTPServer 8080
+```
 
 * Now the Front application is expose on the 8080 port
 * Launch the following command line to expose the back application from the server directory
 
-    node server/app
+```
+cd /path/of/workspace
+node server/app
+```
 
 * Now the Back application is expose on the 3000 port
 
 # TODO
 
 * Create Tests
-* Create buidld script using Gulp
+* Create build script using Gulp
+* Create an injector and an app to manage books ([we used to create books database on Nuxeo](https://github.com/bjalon/estt), but all things can change :) )
 
