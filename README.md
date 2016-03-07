@@ -1,12 +1,29 @@
 # estt-mean
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+This is project is a personnal project to learn MEAN stack and deliver for a small school a library manager.
+This application is composed by a front application using AngularJS, a back application based on NodeJS and the Express framework and a database MongoDB.
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+* (Install MongoDB)[https://docs.mongodb.org/manual/installation/]
+* (Install NodeJS)[https://nodejs.org/en/download/]
+* Install Python
+* Start the mongoDB (normally explain at the end of the installation)
+* Launch the following command line to expose the front application from the app directory
 
-## Testing
+   npm install
+   bower install
+   python -m SimpleHTTPServer 8080
 
-Running `grunt test` will run the unit tests with karma.
+* Now the Front application is expose on the 8080 port
+* Launch the following command line to expose the back application from the server directory
+
+    node server/app
+
+* Now the Back application is expose on the 3000 port
+
+# TODO
+
+* Create Tests
+* Create buidld script using Gulp
+
