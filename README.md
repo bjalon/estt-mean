@@ -5,8 +5,8 @@ This application is composed by a front application using AngularJS, a back appl
 
 ## Build & development
 
-* (Install MongoDB)[https://docs.mongodb.org/manual/installation/]
-* (Install NodeJS)[https://nodejs.org/en/download/]
+* [Install MongoDB|https://docs.mongodb.org/manual/installation/]
+* [Install NodeJS|https://nodejs.org/en/download/]
 * Install Python
 * Start the mongoDB (normally explain at the end of the installation)
 * Launch the following command line to expose the front application from the app directory
