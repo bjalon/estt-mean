@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-6">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <div class="col-sm-2">
+                    <label for="inputEmail3" class="control-label">Qui ?</label>
+                </div>
+                <div class="col-sm-10">
+                    <input ng-model="bookTyped" ng-change="fetchBooks()" type="text" class="form-control" id="inputEmail3" placeholder="Taper le prénom et le nom">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button ng-click="clean()" type="submit" class="btn btn-danger btn-lg">Annuler</button>
+                </div>
+            </div>
+        </form>
+        <p></p>
+        <p></p>
+    </div>
+    <div class="col-md-6">
+        <div class="col-md-12" ng-show="bookSelectedNumber > 0">
+            <div ng-repeat="book in books">
+                <ul class="media-list" ng-click="navigateToBorrow(book)">
+                    <h1 class="list-group-item">{{book.title}}</h1>
+                    <!-- <h2 class="list-group-item">{{book.authors}}</h2>
+                    <h2 class="list-group-item">{{book.id}}</h2> -->
+                    <!-- <p class="list-group-item">{{book.description}}</p> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

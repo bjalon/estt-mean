@@ -3,7 +3,7 @@ var libraryApp = angular.module('libraryApp', ['ngRoute', 'libraryControllers'])
 libraryApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-        when('/emprunt', {
+        when('/emprunt/:bookId?', {
             templateUrl: 'views/emprunt.html',
             controller: 'libraryEmpruntCtrl'
         }).
@@ -15,26 +15,12 @@ libraryApp.config(['$routeProvider',
             templateUrl: 'views/gestion.html',
             controller: 'libraryGestionCtrl'
         }).
+        when('/rechercher', {
+            templateUrl: 'views/rechercher.html',
+            controller: 'libraryRechercherCtrl'
+        }).
         otherwise({
             redirectTo: '/emprunt'
         });
     }
 ]);
-
-libraryApp.factory("flash", function($rootScope) {
-  var queue = [];
-  var currentMessage = "";
-
-  $rootScope.$on("$routeChangeSuccess", function() {
-    currentMessage = queue.shift() || "";
-  });
-
-  return {
-    setMessage: function(message) {
-      queue.push(message);
-    },
-    getMessage: function() {
-      return currentMessage;
-    }
-  };
-});

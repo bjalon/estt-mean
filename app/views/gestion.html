@@ -13,10 +13,10 @@
             <tr ng-repeat="emprunt in emprunts">
                 <td>{{emprunt.child}}</td>
                 <td>{{emprunt.book}}</td>
-                <td>{{emprunt.date}}</td>
+                <td>{{emprunt.date | date:'dd/MM/yyyy à HH:mm'}}</td>
                 <td contenteditable="true">
                     <div class="btn-group ">
-                        <a ng-click="cancelEmprunt()" class="btn btn-default">Annulation</a>
+                        <a ng-click="cancelEmprunt(emprunt)" class="btn btn-default">Annulation</a>
                     </div>
                 </td>
             </tr>
