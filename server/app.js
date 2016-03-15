@@ -1,8 +1,12 @@
+
 var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
 app.use(bodyParser.json());
+
+var ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -24,6 +28,6 @@ app.get('/api/*', function(req, res, next) {
 
 
 
-app.listen(3000, function() {
-    console.log('Server listening on', 3000)
-})
+app.listen(port, ip, function() {
+    console.log('Server running at http://%s:%d',ip ,port);
+});
