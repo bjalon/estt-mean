@@ -33,8 +33,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     console.log('New POST on book');
-    var book = new Book(req.body)
     console.log('Book to add ' + JSON.stringify(req.body));
+    var book = new Book(req.body)
 
     book.save(function(err, book) {
         if (err) {
@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
             return next(err)
         }
         console.log('Book added');
-        res.json(204, book)
+        res.json(204).json(book);
     })
 })
 

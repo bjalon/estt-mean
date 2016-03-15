@@ -13,7 +13,7 @@ libraryApp.controller('libraryRechercherCtrl', ['$scope', '$http', '$location', 
         }
 
         $http.get(baseURL + '/api/book', {
-            param: {
+            params: {
                 "fulltext": $scope.bookTyped
             }
         }).success(function(books) {
@@ -85,7 +85,7 @@ libraryApp.controller('libraryRestitutionCtrl', ['$scope', '$http', 'filterFilte
         }
 
         $http.get(baseURL + '/api/emprunt', {
-            param: {
+            params: {
                 "fulltext": $scope.empruntTyped
             }
         }).success(function(emprunts) {
@@ -114,14 +114,14 @@ libraryApp.controller('libraryRestitutionCtrl', ['$scope', '$http', 'filterFilte
 
     $scope.selectEmpruntItem = function(empruntItem) {
         console.log('Item selected ' + JSON.stringify(empruntItem));
+        $scope.hasBeenBookSelectedInList = true;
         $scope.empruntSelectedNumber = 1;
         $scope.empruntSelected = empruntItem;
+        $scope.empruntTyped = empruntItem.id + ' / ' + empruntItem.name
         $scope.bookSelected = filterFilter($scope.books, { "name": empruntItem.book })[0];
         $scope.childSelected = filterFilter($scope.children, { "name": empruntItem.child })[0];
         console.log('book selected ' + JSON.stringify($scope.bookSelected));
         console.log('child selected ' + JSON.stringify($scope.childSelected));
-        $scope.hasBeenSelectedInList = true;
-
     }
 
     $http.get('data/children.json').success(function(data) {
@@ -134,6 +134,7 @@ libraryApp.controller('libraryRestitutionCtrl', ['$scope', '$http', 'filterFilte
 
     function clean() {
         console.log('Clean asked');
+        $scope.hasBeenBookSelectedInList = false;
         $scope.hasBeenSelectedInList = false;
         $scope.emprunts = '';
         $scope.bookSelected = '';
@@ -170,10 +171,12 @@ libraryApp.controller('libraryEmpruntCtrl', ['$scope', '$http', '$routeParams', 
     });
 
     $scope.selectChild = function(name) {
+        $scope.hasBeenChildSelectedInList = true;
         $scope.childrenFilter.name = name;
     }
 
     $scope.selectBook = function(name) {
+        $scope.hasBeenBookSelectedInList = true;
         $scope.booksFilter = name;
     }
 
@@ -204,6 +207,8 @@ libraryApp.controller('libraryEmpruntCtrl', ['$scope', '$http', '$routeParams', 
     }
 
     function clean() {
+        $scope.hasBeenChildSelectedInList = false;
+        $scope.hasBeenBookSelectedInList = false;
         $scope.selectedChild = '';
         $scope.selectedBook = '';
         $scope.childrenFilter = '';

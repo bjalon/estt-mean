@@ -5,7 +5,7 @@ router.get('/', function(req, res, next) {
 
     var filter;
 
-    console.log('New GET on emprunt with parameter' + JSON.stringify(req.query));
+    console.log('New GET on emprunt with parameter: ' + JSON.stringify(req.query));
 
     if (typeof req.query.fulltext === 'undefined') {
         filter = {};
